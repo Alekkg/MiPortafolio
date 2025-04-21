@@ -1,0 +1,509 @@
+/* ========== VARIABLES ========== */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-light: #f9f9f9;
+    --primary-color: #ff0080;
+    --text-color: #ffffff;
+    --accent-color: #9b5de5;
+    --font-main: 'Poppins', sans-serif;
+    --font-title: 'Orbitron', sans-serif;
+  }
+  
+  /* ========== RESET & BASE ========== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.light-mode {
+    background-color: var(--bg-light);
+    color: #222;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* ========== HEADER ========== */
+  header {
+    background-color: #111;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .logo span {
+    color: var(--accent-color);
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .nav-links a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Botón menú hamburguesa */
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .btn-theme {
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+  }
+  
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background: #111;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 200px;
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+  /* ========== SECCIÓN SOBRE MÍ ========== */
+  .sobre-mi .contenido-sobre-mi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .introduccion h3 {
+    font-size: 2.5rem;
+    color: rgb(235, 234, 234);
+    text-shadow: 0 0 8px var(--primary-color), 0 0 2px var(--primary-color), 0 0 10px var(--primary-color), 0 0 6px var(--primary-color), 0 0 20px var(--primary-color), 0 0 20px var(--primary-color), 0 0 1px var(--primary-color), 0 0 12px var(--primary-color);
+  }
+  
+  .imagen-sobre-mi img {
+    width: 250px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--accent-color);
+  }
+  
+  .texto-sobre-mi {
+    margin-top: 2rem;
+  }
+  
+  .titulo-seccion {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  /* ========== HABILIDADES ========== */
+  .habilidades-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    
+  }
+  
+  .tarjeta-habilidad {
+    flex: 1;
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #ff00cc;
+  }
+
+  .tarjeta-habilidad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 16px #ff33cc, 0 0 8px #9933ff;
+  }
+  
+  /* ========== PROYECTOS ========== */
+  .galeria-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .tarjeta-proyecto {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .tarjeta-proyecto:hover {
+    transform: scale(1.05);
+  }
+  
+  .tarjeta-proyecto img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  /* ========== CONTACTO ========== */
+  .contacto {
+    padding: 4rem 2rem;
+    background: var(--background-dark); 
+    color: var(--text-color);
+    text-align: center;
+  }
+  
+  .contacto-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.2);
+  }
+  
+  .mensaje-contacto {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--accent-color);
+  }
+  
+  .info-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .item-contacto {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .item-contacto img {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 0 5px var(--accent-color));
+    transition: transform 0.3s;
+  }
+  
+  .item-contacto a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .item-contacto a:hover {
+    color: var(--accent-color);
+  }
+  
+  .item-contacto img:hover {
+    transform: scale(1.2);
+  }  
+  /* ========== HOBBIES ========== */
+  .hobbies {
+    background-color: #0d0d0d; 
+    padding: 4rem 0;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hobbies p {
+    color: #ccc;
+  }
+  
+  .galeria-hobbies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .hobby-item {
+    background-color: #1a1a1a;
+    border: 2px solid #ff00cc; 
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 12px rgba(255, 0, 204, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hobby-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hobby-item p {
+    margin: 0;
+    font-weight: 600;
+    color: #cc66ff; 
+    text-shadow: 0 0 5px #ff66cc;
+  }
+  
+  .hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 16px #ff33cc, 0 0 8px #9933ff;
+  }
+    /* ========== FOOTER ========== */
+    .footer {
+        background-color: #0d0d0d;
+        color: #f5b2ff;
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid #ff00c8;
+      }
+      
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .footer p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        margin: 0;
+      }
+      
+      .footer-redes {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .item-contacto {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: rgba(255, 0, 200, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+      
+      .item-contacto:hover {
+        transform: scale(1.05);
+        background-color: rgba(255, 0, 200, 0.2);
+      }
+      
+      .item-contacto img {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .item-contacto a {
+        color: #f5b2ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .item-contacto a:hover {
+        color: #ff00c8;
+      }
+.item-contacto {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background-color: rgba(255, 0, 200, 0.1);
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px transparent;
+}
+
+.item-contacto:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 0, 200, 0.2);
+  box-shadow: 0 0 12px #ff00c8, 0 0 24px #ff00c8;
+}
+
+.item-contacto a:hover {
+  color: #ff66e5;
+  text-shadow: 0 0 5px #ff66e5;
+}
+
+       
+  
+  /* ========== MODO CLARO ========== */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #222;
+  }
+  
+  body.light-mode header {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  body.light-mode .nav-links a:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  body.light-mode .tarjeta-habilidad,
+  body.light-mode .tarjeta-proyecto {
+    background-color: #ffffff;
+    color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  body.light-mode input,
+  body.light-mode textarea {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+  
+  body.light-mode .btn-cv,
+  body.light-mode button[type="submit"] {
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+  
+  body.light-mode .btn-cv:hover,
+  body.light-mode button[type="submit"]:hover {
+    background-color: var(--primary-color);
+  }
+  
+  body.light-mode .imagen-sobre-mi img {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+  }
+  * {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+body.light-mode .hobbies {
+    background-color: #ffffff;
+    color: #222;
+  }
+  
+  body.light-mode .hobbies p {
+    color: #555;
+  }
+  
+  body.light-mode .hobby-item {
+    background-color: #f9f9f9;
+    border: 2px solid #ff66cc;
+    box-shadow: 0 0 12px rgba(255, 0, 204, 0.2);
+  }
+  
+  body.light-mode .hobby-item p {
+    color: #cc33aa;
+    text-shadow: 0 0 3px #ff99cc;
+  }
+
+  body.light-mode .contacto {
+    background-color: #fff;
+    color: #222;
+  }
+  
+  body.light-mode .item-contacto {
+    background-color: rgba(255, 0, 200, 0.08);
+    box-shadow: 0 0 8px transparent;
+  }
+  
+  body.light-mode .item-contacto:hover {
+    background-color: rgba(255, 0, 200, 0.15);
+    box-shadow: 0 0 12px #ff33cc;
+  }
+  
+  body.light-mode .item-contacto a {
+    color: #cc3399;
+  }
+  
+  body.light-mode .item-contacto a:hover {
+    color: #ff66cc;
+  }
+  
+  body.light-mode .footer {
+    background-color: #f0f0f0;
+    color: #cc3399;
+    border-top: 1px solid #ff66cc;
+  }
+  
+  body.light-mode .footer a {
+    color: #cc3399;
+  }
+  
+  body.light-mode .footer a:hover {
+    color: #ff66cc;
+  }
+  
+  
